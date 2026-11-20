@@ -36,7 +36,9 @@ class CliTest {
             PrintStream(out, true, Charsets.UTF_8),
             PrintStream(err, true, Charsets.UTF_8),
         ).run(arrayOf(*args))
-        return Outcome(status, out.toString(Charsets.UTF_8), err.toString(Charsets.UTF_8))
+        // println ends lines with the platform separator, which is CRLF on Windows.
+        fun text(bytes: ByteArrayOutputStream) = bytes.toString(Charsets.UTF_8).replace("\r\n", "\n")
+        return Outcome(status, text(out), text(err))
     }
 
     private val square = "push 6\ncall sq\npush 0\nadd\nhalt\nsq:\nenter 1\nload 0\nload 0\nmul\nret\n"

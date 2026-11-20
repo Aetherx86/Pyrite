@@ -27,7 +27,8 @@ class DisassemblerTest {
                 mul              ; 000d  depth 2
                 ret              ; 000e  depth 1
         """.trimIndent()
-        assertEquals(expected + "\n", text)
+        // The source file may have been checked out with CRLF line endings.
+        assertEquals(expected.replace("\r\n", "\n") + "\n", text)
     }
 
     @Test
