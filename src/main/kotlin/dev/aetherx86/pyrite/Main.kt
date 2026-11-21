@@ -29,7 +29,7 @@ import java.io.PrintStream
 import java.util.Locale
 import kotlin.system.exitProcess
 
-const val VERSION = "0.2.0"
+const val VERSION = "0.2.1"
 
 private val USAGE = """
     usage: pyrite <command> <file> [options]

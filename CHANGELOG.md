@@ -3,6 +3,11 @@
 Versions follow this rule: a bug or security fix increments `0.0.X`, and new functionality
 or new platform support increments `0.X.0`.
 
+## [0.2.1] - 2026-11-21
+
+- The CLI and disassembler tests compare output with normalized line endings, so they pass on
+  Windows, where `println` writes CRLF. No change to the library or the CLI.
+
 ## [0.2.0] - 2026-11-20
 
 - Functions in the stack VM: `call`, `enter` and `ret`. The verifier proves each function
